@@ -8,12 +8,21 @@ const EditUserForm = (props) => {
         register,
         errors,
         handleSubmit,
+        setValue,
     } = useForm({
         defaultValues: props.currentUser,
     });
 
+    setValue('name', props.currentUser.name);
+    setValue('email', props.currentUser.email);
+    setValue('password', props.currentUser.password);
+    setValue('phone', props.currentUser.phone);
+
     const onSubmit = (data, e) => {
         console.log(data);
+        data.id = props.currentUser.id
+
+        props.updateUser(props.currentUser.id, data)
 
         // limpiar campos
         e.target.reset();
@@ -55,7 +64,6 @@ const EditUserForm = (props) => {
             <input
                 type="tel"
                 name="phone"
-                placeholder="(contrycode) (citycode) number"
                 {...register("phone", {
                     required: { value: true, message: "Campo Requerido" },
                 })}

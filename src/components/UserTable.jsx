@@ -8,7 +8,7 @@ const UserTable = (props) => {
                 <th>Nombre</th>
                 <th>Email</th>
                 <th>Clave</th>
-                <th>Telefono</th>
+                <th>Teléfono</th>
             </tr>
         </thead>
         <tbody>

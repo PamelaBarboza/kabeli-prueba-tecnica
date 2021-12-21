@@ -36,8 +36,8 @@ const AddUserForm = (props) => {
             })} />
             <div>{errors?.password?.message}</div>
 
-            <label>Telefono</label>
-            <input type="tel" name="phone" placeholder="(contrycode) (citycode) number" {...register("phone", {
+            <label>Teléfono</label>
+            <input type="tel" name="phone" {...register("phone", {
                 required: { value: true, message: 'Campo Requerido' }
             })} />
             <div>{errors?.phone?.message}</div>

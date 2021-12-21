@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# CRUD React Hooks
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Me basé en el siguiente ejemplo:
+https://www.taniarascia.com/crud-app-in-react-with-hooks/
 
-## Available Scripts
+La aplicación enlista, agregar, elimina y modifica.
 
-In the project directory, you can run:
 
-### `yarn start`
+## Diagrama de Solución
+![diagrama de solucion](https://user-images.githubusercontent.com/66397527/146973799-468edb29-76fc-4f9d-b85f-efd9f4f3c0ef.jpeg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Configuraciones iniciales
 
-### `yarn test`
+npx create-react-app react-hooks
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Eliminé todos los archivos a expcepción de 
 
-### `yarn build`
+* app.js
+* index.css
+* index.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Instalaciones adicionales
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+npm install react-hook-form
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm install uuid
 
-### `yarn eject`
+## Configuracion de Stylos
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Se elimino los datos que estaban en el index.css y los reemplace por estos:
+https://taniarascia.github.io/primitive/css/main.css
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Configuracion de vista
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![ScreenShot](https://user-images.githubusercontent.com/66397527/146968163-90e115c3-7692-4e08-81f4-9d6ab7384cc1.jpg)
 
-## Learn More
+## Creación del componente
+src/components/UserTable.jsx
+UserTable.jsx
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Importamos React,
+y exportamos default UserTable.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![ScreenShot](https://user-images.githubusercontent.com/66397527/146970493-de6e8b48-ac8a-403c-8bea-a7f214573142.jpg)
 
-### Code Splitting
+Luego importamos y agregamos el componente a App.jsx
+Luego iteramos los datos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Luego traemos los datos del Json  e importamos el useState en React
+![app js](https://user-images.githubusercontent.com/66397527/146971487-9bdf51dc-4b92-4669-9317-d502f6198877.jpg)
 
-### Analyzing the Bundle Size
+Los accesorios funcionan igual que antes. Mapearemos los datos de usuario que enviamos y mostraremos las propiedades de cada usuario, o mostraremos un mensaje si no hay usuarios. Los botones de Modificar y eliminar aún no están conectados a nada, por lo que no harán nada.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![usuario](https://user-images.githubusercontent.com/66397527/146972277-f1408f47-69d1-4fa3-a1da-7e61b65f2f60.jpg)
 
-### Making a Progressive Web App
+Realizamos los estados en App.jsx, tambien lo pasamos como props en UserTable={users} y luego en UserTable.jsx esta recibiendo el props y luego lo comenzamos a iterar.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![iterar](https://user-images.githubusercontent.com/66397527/146973141-d35d1979-874b-46bc-aeb2-16f6fb260c79.jpg)
 
-### Advanced Configuration
+Para generar un iD solamente necesitamos una funcion: 
+uuidv4() y lo reemplazamos en el  ID.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Agregar un nuevo usuario
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+configurar el formulario para agregar un nuevo usuario.

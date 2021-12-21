@@ -11,7 +11,7 @@ const App = () => {
       name: "Juan Rodriguez",
       email: "juan@rodriguez.org",
       password: "hunder2",
-      phone: { number: 1234567, citycode: 1, contrycode: 57 },
+      phone: { contrycode: "57", citycode: "1", number: "1234567"},
     },
   ];
 
@@ -34,30 +34,34 @@ const App = () => {
 
   const [editing, setEditing] = useState(false);
 
+  
+
   const [currentUser, setCurrentUser] = useState({
     id: null,
     name: "",
     email: "",
     password: "",
-    phone: "",
+    phone: { contrycode: "", citycode: "", number: ""},
 
-    // phone: {
-    //   citycode: "",
-    //   contrycode: "",
-    //   number: ""
-    // },
   });
 
   const editRow = (user) => {
     setEditing(true);
+
     setCurrentUser({
       id: user.id,
       name: user.name,
       email: user.email,
       password: user.password,
-      phone: user.phone.number
+      phone: user.phone.contrycode + user.phone.citycode + user.phone.number
     });
   };
+ 
+
+  function updateUser(id, updateUser) {
+    setEditing(false);
+    setUsers(users.map(user => (user.id === id ? updateUser : user)));
+  }
 
   return (
     <div className="container">
@@ -68,7 +72,9 @@ const App = () => {
             <div>
               <h3>Modificar Usuario</h3>
               <EditUserForm 
-                currentUser={currentUser}/>
+                currentUser={currentUser}
+                updateUser={updateUser}
+                />
             </div>
           ) : (
             <div>
